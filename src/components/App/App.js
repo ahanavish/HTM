@@ -1,19 +1,39 @@
 import React from 'react';
-
+import Header from "../Header/Header";
+import ResultContainer from "../ResultContainer/ResultContainer";
+import SearchBox from "../SearchBox/SearchBox";
 import './App.css';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
-import Preferences from '../Preferences/Preferences';
+class App extends React.Component {
+  constructor() {
+    super();
 
-function App() {
+    this.state = {
+      headerText: 'MedSync',
+      headerExpanded: true,
+      suggestedMeds: [],
+    }
+  }
 
-  return (
+  handleInputChange = (inputText) => {
 
-    <></>
+    this.setState({
+      headerExpanded: !inputText,
+      suggestedMeds: SearchBox(inputText)
+    });
+  }
 
-  );
-
+  render() {
+    return (
+      <div>
+        <Header headerExpanded={this.state.headerExpanded}
+          headTitle={this.state.headerText} />
+        <SearchBox OnInputChange={this.handleInputChange} />
+        <ResultContainer suggestedMeds={this.state.suggestedMeds} />
+      </div>
+    )
+  }
 }
+
 
 export default App;

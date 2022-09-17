@@ -1,0 +1,36 @@
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: rgb(128, 128, 128);
+    color: black;
+}
+
+.head-text {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    transition: margin-top 1s, font-size 1s;
+}
+
+.head-text-expanded {
+    margin-top: 80px;
+    font-size: 80px;
+}
+
+.head-text-contracted {
+    margin-top: 20px;
+    font-size: 40px;
+}
