@@ -1,9 +1,10 @@
 import React from "react";
+import NameCard from "../NameCard/NameCard";
 import './ResultContainer.css';
 
 const ResultContainer = ({ suggestedMeds }) => {
     const suggestMedsJsx = suggestedMeds.map(suggestedMeds => {
-        return <p key={suggestedMeds}>{suggestedMeds}</p>;
+        return <NameCard key={suggestedMeds} suggestedMeds={suggestedMeds} />;
     })
 
     return (

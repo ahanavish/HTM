@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import "./MedicineDetails.css";
 
 function MedicineDetails() {
-
   const [medicine, setMedicine] = useState({
     name: "",
     expiry: "",
@@ -26,15 +26,24 @@ function MedicineDetails() {
   }
 
   return (
+    <form className="forms" onSubmit={handleSubmit}>
+      <label for="myfile">Select a file:</label><br></br>
+      <input type="file" id="myfile" name="myfile" /><br></br>
 
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={medicine.name} onChange={handleChange} />
-      <input type="date" name="expiry" value={medicine.expiry} onChange={handleChange} />
-      <input type="number" name="quantity" value={medicine.quantity} onChange={handleChange} />
-      <input type="number" name="price" value={medicine.price} onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
+      <label for="med-name">Medicine Name: </label><br></br>
+      <input type="text" name="name" value={medicine.name} onChange={handleChange} /><br></br>
 
+      <label for="med-name">Expiry date: </label><br></br>
+      <input type="date" name="expiry" value={medicine.expiry} onChange={handleChange} /><br></br>
+
+      <label for="med-name">Quantity: </label><br></br>
+      <input type="number" name="quantity" value={medicine.quantity} onChange={handleChange} /><br></br>
+
+      <label for="med-name">Price: </label><br></br>
+      <input type="number" name="price" value={medicine.price} onChange={handleChange} /><br></br>
+
+      <button className="submit-button" type="submit">Submit</button>
+    </form >
   );
 
 }
