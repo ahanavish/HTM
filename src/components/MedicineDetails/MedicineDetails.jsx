@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 function MedicineDetails() {
 
+  const id=0;
+  
   const [medicine, setMedicine] = useState({
     name: "",
     expiry: "",
@@ -15,14 +17,34 @@ function MedicineDetails() {
     setMedicine({ ...medicine, [e.target.name]: e.target.value });
   }
 
-  const handleSubmit = async (e) => {
-    console.log(medicine);
-    e.preventDefault();
+  async function addMedicine(){
     try {
       await addDoc(collection(db, 'medicines'), medicine)
     } catch (err) {
       alert(err)
     }
+  }
+
+  async function editMedicine(){
+    const medDocRef = doc(db, 'medicines', id)
+    try{
+      await updateDoc(medDocRef, medicine)
+    } catch (err) {
+      alert(err)
+    }
+  }
+
+  async function deleteMedicine(){
+    const medDocRef = doc(db, 'medicines', id)
+    try{
+      await deleteDoc(medDocRef)
+    } catch (err) {
+      alert(err)
+    }
+  }
+    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
   }
 
   return (

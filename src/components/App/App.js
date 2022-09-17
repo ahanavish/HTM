@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "../Header/Header";
 import ResultContainer from "../ResultContainer/ResultContainer";
 import SearchBox from "../SearchBox/SearchBox";
 import './App.css';
+import {collection, getDocs} from "firebase/firestore"
+import {db} from '../../firebase'
 
 class App extends React.Component {
   constructor() {
@@ -15,11 +17,23 @@ class App extends React.Component {
     }
   }
 
-  handleInputChange = (inputText) => {
-
+  async componentDidMount() {
+    const querySnapshot = await getDocs(collection(db, 'medicines'))
+    const medicines = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      data: doc.data()
+    }))
+    
     this.setState({
-      headerExpanded: !inputText,
-      suggestedMeds: SearchBox(inputText)
+      suggestedMeds: medicines
+    });
+
+    console.log(this.state)
+  }
+
+  handleInputChange = (inputText) => {
+    this.setState({
+      headerExpanded: !inputText
     });
   }
 
