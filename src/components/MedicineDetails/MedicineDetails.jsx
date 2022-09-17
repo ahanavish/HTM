@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase';
-import { collection, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
+import "./MedicineDetails.css";
 
 function MedicineDetails() {
-
-  const id=0;
-  
   const [medicine, setMedicine] = useState({
     name: "",
     expiry: "",
@@ -17,7 +15,9 @@ function MedicineDetails() {
     setMedicine({ ...medicine, [e.target.name]: e.target.value });
   }
 
-  async function addMedicine(){
+  const handleSubmit = async (e) => {
+    console.log(medicine);
+    e.preventDefault();
     try {
       await addDoc(collection(db, 'medicines'), medicine)
     } catch (err) {
@@ -25,40 +25,31 @@ function MedicineDetails() {
     }
   }
 
-  async function editMedicine(){
-    const medDocRef = doc(db, 'medicines', id)
-    try{
-      await updateDoc(medDocRef, medicine)
-    } catch (err) {
-      alert(err)
-    }
-  }
-
-  async function deleteMedicine(){
-    const medDocRef = doc(db, 'medicines', id)
-    try{
-      await deleteDoc(medDocRef)
-    } catch (err) {
-      alert(err)
-    }
-  }
-    
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  }
-
   return (
+    <div className="forms">
+      <form onSubmit={handleSubmit}>
+        <label for="myfile">Select a file:</label><br></br>
+        <input type="file" id="myfile" name="myfile" /><br></br>
 
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={medicine.name} onChange={handleChange} />
-      <input type="date" name="expiry" value={medicine.expiry} onChange={handleChange} />
-      <input type="number" name="quantity" value={medicine.quantity} onChange={handleChange} />
-      <input type="number" name="price" value={medicine.price} onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
+        <label for="med-name">Medicine Name: </label><br></br>
+        <input type="text" name="name" value={medicine.name} onChange={handleChange} /><br></br>
 
+        <label for="med-name">Expiry date: </label><br></br>
+        <input type="date" name="expiry" value={medicine.expiry} onChange={handleChange} /><br></br>
+
+        <label for="med-name">Quantity: </label><br></br>
+        <input type="number" name="quantity" value={medicine.quantity} onChange={handleChange} /><br></br>
+
+        <label for="med-name">Price: </label><br></br>
+        <input type="number" name="price" value={medicine.price} onChange={handleChange} /><br></br>
+
+        <button className="submit-button" type="submit">Submit</button>
+      </form >
+    </div>
   );
 
 }
 
 export default MedicineDetails;
+
+

@@ -1,0 +1,33 @@
+input[type=text],
+input[type=number],
+input[type=date],
+input[type=file] {
+    padding: 10px 15px 13px;
+    margin: 8px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    min-width: 280px;
+    background-color: white;
+}
+
+.submit-button {
+    padding: 12px 20px;
+    margin: 18px 92px;
+    background-color: rgb(58, 58, 58);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.forms {
+    margin-top: 90px;
+    margin-left: 38%;
+    margin-right: 52%;
+    justify-content: center;
+}

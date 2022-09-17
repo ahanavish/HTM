@@ -77,8 +77,7 @@ class Login extends React.Component {
                 </div>
                 <FluidInput type="text" label="name" id="name" style={style} />
                 <FluidInput type="phone" label="number" id="number" style={style} />
-                <FluidInput type="phone" label="OTP" id="otp" style={style} />
-                <Button buttonText="log in" buttonClass="login-button" />
+                <Button buttonText="submit" buttonClass="submit-button" />
             </div>
         );
     }
