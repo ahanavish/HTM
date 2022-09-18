@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./Login.css";
-
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 // class FluidInput extends React.Component {
@@ -85,77 +84,91 @@ import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth
 //     }
 // }
 
-// function Login(){
-//     const auth = getAuth();
-//     auth.languageCode = 'it';
+function Login(){    
 
-//     window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
-//     window.recaptchaVerifier.render();
+    const [phoneNumber, setPhoneNumber] = useState(0);
+    const [code,setCode] = useState(0);
 
-//     const [phoneNumber, setPhoneNumber] = useState(0);
-//     const appVerifier = window.recaptchaVerifier;
-//     const [code, setCode] = useState(0);
+    const generateOTP = () => {
+        const auth = getAuth();
+window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+  'size': 'normal',
+  'callback': (response) => {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    // ...
+  },
+  'expired-callback': () => {
+    // Response expired. Ask user to solve reCAPTCHA again.
+    // ...
+  }
+}, auth);
 
-//     const generateOTP = () => {
-//         // signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-//         // .then((confirmationResult) => {
-//         //     // SMS sent. Prompt user to type the code from the message, then sign the
-//         //     // user in with confirmationResult.confirm(code).
-//         //     window.confirmationResult = confirmationResult;
-//         // }).catch((error) => {
-//         //     // Error; SMS not sent
-//         // });
-//     }
+        // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        //     'size': 'normal',
+        //     'callback': (response) => {
+        //     // reCAPTCHA solved, allow signInWithPhoneNumber.
+        //         console.log(response);
+        //     },
+        //     'expired-callback': () =>{
+        //         console.log("Captcha Expired");
+        //     }
+        // });
+
+        const appVerifier = window.recaptchaVerifier;
+
+// const auth = getAuth();
+signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    .then((confirmationResult) => {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      window.confirmationResult = confirmationResult;
+      // ...
+    }).catch((error) => {
+      // Error; SMS not sent
+      // ...
+    });
+        // var cverify = window.recaptchaVerifier;
+
+        // firebase.auth().signInWithPhoneNumber(phoneNumber, cverify)
+        // .then((response) => {
+        //     // SMS sent. Prompt user to type the code from the message, then sign the
+        //     // user in with confirmationResult.confirm(code).
+        //     console.log(response);
+        //     window.confirmationResult=response;
+        // }).catch((error) => {
+        //     // Error; SMS not sent
+        //     console.log(error);
+        // });
+    }
     
-//     const login = () => {
-//         // window.confirmationResult.confirm(code).then((result) => {
-//         //     // User signed in successfully.
-//         //     const user = result.user;
-//         //     console.log(user);
-//         //   }).catch((error) => {
-//         //     // User couldn't sign in (bad verification code?)
-//         //   });
-//     }
+    const login = () => {
+        // confirmationResult.confirm(code).then((result) => {
+        //     // User signed in successfully.
+        //     console.log(result);
+        //     const user = result.user;
+        //     // ...
+        //   }).catch((error) => {
+        //     // User couldn't sign in (bad verification code?)
+        //     // ...
+        //   });
+          window.confirmationResult.confirm(code).then((result) => {
+            // User signed in successfully.
+            // const user = result.user;
+            // ...
+          }).catch((error) => {
+            // User couldn't sign in (bad verification code?)
+            // ...
+          });
+    }
 
-//     return (
-//         <div>
-//             <input type="number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
-//             <div id='recaptcha-container'></div>
-//             <button onClick={generateOTP}>Generate OTP</button>
-//             <input type="number" value={code} onChange={(e) => setCode(e.target.value)}/>
-//             <button onClick={login}>LogIn</button>
-//         </div>
-//     )
-// }
-function Login(){
-render();
-function render(){
-	window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container');
-	window.recaptchaVerifier.render();
+    return (
+        <div>
+            <input type="number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
+            <button onClick={generateOTP}>Generate OTP</button>
+            <input type="number" value={code} onChange={(e) => setCode(e.target.value)}/>
+            <button onClick={login}>LogIn</button>
+        </div>
+    )
 }
-	// function for send message
-function generateOTP(){
-	var number = document.getElementById('number').value;
-        firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function(confirmationResult){
-		window.confirmationResult = confirmationResult;
-		// coderesult = confirmationResult;
-		// document.getElementById('sender').style.display = 'none';
-		// document.getElementById('verifier').style.display = 'block';
-	}).catch(function(error){
-		alert(error.message);
-	});
-}
-	// function for code verify
-function login(){
-	var code = document.getElementById('verificationcode').value;
-	    window.confirmationResult.confirm(code).then(function(){
-		// document.getElementsByClassName('p-conf')[0].style.display = 'block';
-		// document.getElementsByClassName('n-conf')[0].style.display = 'none';
-    // window.location='home.html';
-	}).catch(function(){
-		// document.getElementsByClassName('p-conf')[0].style.display = 'none';
-		// document.getElementsByClassName('n-conf')[0].style.display = 'block';
-	})
-}
-}
+
 export default Login;
