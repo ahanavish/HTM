@@ -75,7 +75,7 @@ class Otp extends React.Component {
                 <div className="title">
                     Verify your phone number
                 </div>
-                <FluidInput type="phone" label="OTP" id="otp" style={style} />
+                <FluidInput type="number" label="OTP" id="otp" style={style} />
                 <Button buttonText="submit" buttonClass="submit-button" />
             </div>
         );

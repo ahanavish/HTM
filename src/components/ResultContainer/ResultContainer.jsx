@@ -9,6 +9,7 @@ const ResultContainer = ({ suggestedMeds }) => {
     return (
         < div className="results-container">
             {/* {suggestMedsJsx} */}
+            {/* console.log('suggestedMeds'); */}
         </ div >
     )
 }

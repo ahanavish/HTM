@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Header from "../Header/Header";
 import ResultContainer from "../ResultContainer/ResultContainer";
 import SearchBox from "../SearchBox/SearchBox";
 import './App.css';
-import {collection, getDocs} from "firebase/firestore"
-import {db} from '../../firebase'
+import { collection, getDocs } from "firebase/firestore"
+import { db } from '../../firebase'
 
 class App extends React.Component {
   constructor() {
@@ -23,12 +23,14 @@ class App extends React.Component {
       id: doc.id,
       data: doc.data()
     }))
-    
+
+    //console.log(medicines);
+
     this.setState({
       suggestedMeds: medicines
     });
 
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   handleInputChange = (inputText) => {
