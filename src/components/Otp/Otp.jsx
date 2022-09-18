@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Otp.css";
 
+
 class FluidInput extends React.Component {
     constructor(props) {
         super(props);
@@ -75,8 +76,8 @@ class Otp extends React.Component {
                 <div className="title">
                     Verify your phone number
                 </div>
-                <FluidInput type="number" label="OTP" id="otp" style={style} />
-                <Button buttonText="submit" buttonClass="submit-button" />
+                <FluidInput type="phone" label="OTP" id="otp" style={style} />
+                <Button id="submit-button" buttonText="submit" buttonClass="submit-button" />
             </div>
         );
     }
