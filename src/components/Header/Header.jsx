@@ -6,7 +6,7 @@ const Header = ({ headTitle, headerExpanded }) => {
         <div className="head-container">
             <div className="navbar">
                 <p className="title">MedSync</p>
-                <a className="login" href="#about">Login</a>
+                <a className="login" href="/login">Login</a>
             </div>
 
             <h1 className={`head-text ${headerExpanded ? 'head-text-expanded' : 'head-text-contracted'}`}>{headTitle}</h1>

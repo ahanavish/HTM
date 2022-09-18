@@ -4,6 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import "./MedicineDetails.css";
 
 function MedicineDetails() {
+
   const [medicine, setMedicine] = useState({
     name: "",
     expiry: "",

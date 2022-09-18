@@ -24,13 +24,10 @@ class App extends React.Component {
       data: doc.data()
     }))
 
-    //console.log(medicines);
-
     this.setState({
       suggestedMeds: medicines
     });
 
-    //console.log(this.state)
   }
 
   handleInputChange = (inputText) => {
