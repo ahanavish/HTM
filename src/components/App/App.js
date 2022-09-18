@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from "../Header/Header";
 import ResultContainer from "../ResultContainer/ResultContainer";
 import SearchBox from "../SearchBox/SearchBox";
