@@ -32,8 +32,7 @@ function MedicineDetails() {
         <input type="file" id="myfile" name="myfile" /><br></br>
 
         <label for="med-name">Medicine Name: </label><br></br>
-        <input type="text" name="name" value={medicine.name} onChange={handleChange} /><br></br>
-
+        <input type="text" name="name1" value={medicine.name} onChange={handleChange} /><br></br>
         <label for="med-name">Expiry date: </label><br></br>
         <input type="date" name="expiry" value={medicine.expiry} onChange={handleChange} /><br></br>
 
