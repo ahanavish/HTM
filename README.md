@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+<h1>PROBLEM STATEMENT</h1>
+- Often we are forced to buy an entire pack of medicines even if it is more than our prescribed dose and the extra medicines go to waste.
+<br/>- It takes a lot of effort, revenue and resources to manufacture medicines and there are people who are unable to even afford them.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
+<h1>SOLUTION</h1>
+- We aim to connect those in need of medicines with the ones who have them in excess. 
+<br/>- Build an app which let's users put up an advertisement for unused medicines and buy from the available stock. 
+<br/>- Medicines being a sensitive product, we would be including some strict restrictions on the medicines being onboarded. 
+<br/>- We would also be focusing on making the onboarding process as smooth as possible by making effective use of Computer Vision technologies to identify the medicine, and its details. 
+<br/>- In order to make the process of buying medicines smooth we would be providing best results by sorting the medicines in stock in increasing order of distance, cost, expiry date. 
 
-## Available Scripts
+<br/>
+<h1> FUTURE SCOPE</h1>
+- A chat feature to enable communication between the seller and buyer would also be provided. 
+<br/>- Gamification and Prize System to encourage people from selling their ununsed medicines.
+</br>- Partnership with NGOs for donation of medicines to needy people.
+</br>- Tie up with Companies for validation of companies. 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</br>
+<h1> TOOLS USED </h1>
+Front-End : React<br/>
+Back-End : Firebase<br/>
+ML model : Python<br/>
+Integration : Django<br/>
