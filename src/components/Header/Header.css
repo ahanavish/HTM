@@ -8,14 +8,13 @@
 .navbar a {
     color: white;
     text-align: center;
-
     text-decoration: none;
     font-size: 17px;
 }
 
 .navbar a:hover {
     background-color: rgb(128, 128, 128);
-    color: black;
+    color: #0c6021;
 }
 
 .head-text {
@@ -44,5 +43,4 @@
 
 .login {
     float: right;
-
 }
