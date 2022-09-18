@@ -91,17 +91,17 @@ function Login(){
 
     const generateOTP = () => {
         const auth = getAuth();
-window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-  'size': 'normal',
-  'callback': (response) => {
-    // reCAPTCHA solved, allow signInWithPhoneNumber.
-    // ...
-  },
-  'expired-callback': () => {
-    // Response expired. Ask user to solve reCAPTCHA again.
-    // ...
-  }
-}, auth);
+        window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+        'size': 'normal',
+        'callback': (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            // ...
+        },
+        'expired-callback': () => {
+            // Response expired. Ask user to solve reCAPTCHA again.
+            // ...
+        }
+        }, auth);
 
         // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
         //     'size': 'normal',
